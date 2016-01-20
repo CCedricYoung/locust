@@ -70,13 +70,11 @@ a {
     text-transform: uppercase;
 }
 
-.boxes .box_running {
-    display: none;
-}
 .hatching .boxes .box_running {display: block;}
 .running .boxes .box_running {display: block;}
 .stopped .boxes .box_running {display: block;}
 .stopped .boxes .box_stop {display: none;}
+#box_reset {display: block;}
 
 .main {
     width: 1000px;
@@ -155,7 +153,6 @@ a {
 .ready .status {display: none;}
 
 .stopped .boxes .edit_test, .ready .boxes .edit_test {display: none;}
-.stopped .boxes .user_count, .ready .boxes .user_count {display: none;}
 
 .running a.new_test, .ready a.new_test, .hatching a.new_test {display: none;}
 .running a.new_test {display: none;}

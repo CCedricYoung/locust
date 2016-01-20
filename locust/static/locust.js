@@ -8,10 +8,8 @@ $("#box_stop a").click(function(event) {
     event.preventDefault();
     $.get($(this).attr("href"));
     $("body").attr("class", "stopped");
-    $(".box_stop").hide();
     $("a.new_test").show();
     $("a.edit_test").hide();
-    $(".user_count").hide();
 });
 
 $("#box_reset a").click(function(event) {
@@ -55,7 +53,6 @@ $('#swarm_form').submit(function(event) {
                 $(".box_running").fadeIn();
                 $("a.new_test").fadeOut();
                 $("a.edit_test").fadeIn();
-                $(".user_count").fadeIn();
             }
         }
     );
@@ -72,7 +69,6 @@ $('#switch_form').submit(function(event) {
                 $(".box_running").fadeIn();
                 $("a.new_test").fadeOut();
                 $("a.edit_test").fadeIn();
-                $(".user_count").fadeIn();
             }
         }
     );
