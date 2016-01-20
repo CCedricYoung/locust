@@ -536,6 +536,13 @@ def main():
             runners.locust_runner = MasterLocustRunner(locust_classes, options, available_locustfiles=all_locustfiles)
 
         main_greenlet = runners.locust_runner.greenlet
+
+    else:
+        runners.locust_runner = LocalLocustRunner(locust_classes, options, available_locustfiles=all_locustfiles)
+        # spawn client spawning/hatching greenlet
+        if options.no_web:
+            runners.locust_runner.start_hatching(wait=True)
+            main_greenlet = runners.locust_runner.greenlet
     
     if not options.only_summary and (options.print_stats or (options.no_web and not options.slave)):
         # spawn stats printing greenlet
