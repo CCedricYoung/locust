@@ -425,8 +425,19 @@ class NoWebMasterLocustRunner(MasterLocustRunner):
             self.all_stats[locustfile_key] = copy.deepcopy(self.stats)
 
             if self.save_stats:
-                logfile = format_logfile(self.statsfile_format, {"locustfile": locustfile_key, "date": datetime.datetime.now().isoformat()})
-                save_logfile(logfile, json.dumps(self.stats.aggregated_stats().serialize(), indent=4))
+                date = datetime.datetime.utcnow().isoformat()
+                results = {
+                    "locustfile": locustfile_key,
+                    "date": date,
+                    "clients": self.num_clients,
+                    "num-requests": self.num_requests,
+                    "timeout": self.max_seconds_elapsed,
+                    "aggregate": self.stats.aggregated_stats("Total", full_request_history=True).serialize(),
+                    "requests": map(lambda x: x.serialize(), self.request_stats.values()),
+                }
+
+                logfile = format_logfile(self.statsfile_format, {"locustfile": locustfile_key, "date": date})
+                save_logfile(logfile, json.dumps(results, indent=4))
             self.stop()
 
     def wait_for_slaves(self, min_slaves, timeout):
