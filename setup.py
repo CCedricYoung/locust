@@ -3,7 +3,7 @@
 from setuptools import setup, find_packages, Command
 import sys, os
 
-__version__ = '0.7.3'
+__version__ = '0.7.4'
 
 # Jenkins will replace __build__ with a unique value.
 __build__ = ''
