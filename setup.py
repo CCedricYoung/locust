@@ -3,7 +3,10 @@
 from setuptools import setup, find_packages, Command
 import sys, os
 
-version = '0.7.3'
+__version__ = '0.7.3'
+
+# Jenkins will replace __build__ with a unique value.
+__build__ = ''
 
 
 class Unit2Discover(Command):
@@ -24,7 +27,7 @@ class Unit2Discover(Command):
 
 setup(
     name='jwlocust',
-    version=version,
+    version=__version__ + __build__,
     description="Website load testing framework",
     long_description="""Locust is a python utility for doing easy, distributed load testing of a web site""",
     classifiers=[
