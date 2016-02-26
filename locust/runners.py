@@ -434,6 +434,7 @@ class NoWebMasterLocustRunner(MasterLocustRunner):
                     "timeout": self.max_seconds_elapsed,
                     "aggregate": self.stats.aggregated_stats("Total", full_request_history=True).serialize(),
                     "requests": map(lambda x: x.serialize(), self.request_stats.values()),
+                    "failures": map(lambda x: x.to_dict(), self.errors.values()),
                 }
 
                 logfile = format_logfile(self.statsfile_format, {"locustfile": locustfile_key, "date": date})

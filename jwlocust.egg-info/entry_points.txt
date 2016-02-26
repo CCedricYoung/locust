@@ -1,0 +1,3 @@
+[console_scripts]
+jwlocust = locust.main:main
+

@@ -1,0 +1,5 @@
+gevent==1.1rc1
+flask>=0.10.1
+polling==0.2.0
+requests>=2.4.1
+msgpack-python>=0.4.2
