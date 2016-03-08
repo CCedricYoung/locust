@@ -277,6 +277,10 @@ class StatsEntry(object):
             "total_content_length": self.total_content_length,
             "response_times": self.response_times,
             "num_reqs_per_sec": self.num_reqs_per_sec,
+
+            # include for save_stats, ignore in unserialize
+            "avg_response_time": self.avg_response_time,
+            "median_response_time": self.median_response_time,
         }
     
     @classmethod
